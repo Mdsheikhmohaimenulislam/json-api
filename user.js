@@ -2,22 +2,23 @@ const userClick = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
+
         user(data)
     })
     
 };
 
 
-const user = (post) => {
-    for( const posts of post){
+const user = (posts) => {
+    for( const post of posts){
 
-        console.log(posts);
+        console.log(post);
 
         const bioData = document.createElement('p')
-        bioData.innerHTML = `<h3>${posts.name}</h3>
+        bioData.innerHTML = `<h3>${post.name}</h3>
         <p></p>
-        <p>${posts.address.city}</p>
-        <p>${posts.email}</p>
+        <p>${post.address.city}</p>
+        <p>${post.email}</p>
 
         `
         document.getElementById('container').appendChild(bioData)
@@ -39,8 +40,10 @@ const user = (post) => {
 // }
 
 // const showPost = (fetchPost) => {
+
 //     for(const post  of fetchPost){
 //        console.log(fetchPost);
+
 //         const titlePost = document.createElement("p")
 //         titlePost.innerText =`
 //         ${post.title}
